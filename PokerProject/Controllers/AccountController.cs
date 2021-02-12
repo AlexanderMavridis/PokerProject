@@ -20,6 +20,7 @@ namespace PokerProject.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        //test
         public AccountController()
         {
         }
