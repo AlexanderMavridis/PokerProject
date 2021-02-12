@@ -1,0 +1,42 @@
+﻿@model PokerProject.ViewModels.TournamentJoinViewModel
+@{
+    ViewBag.Title = "JoinTournament";
+}
+
+<h2>Tournament Info</h2>
+<p>Please, fill your buy in!</p>
+
+
+
+@using (Html.BeginForm("Join", "Tournament"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(t => t.Tournament.TournamentId)
+    <div class="form-group">
+        @Html.LabelFor(t => t.Tournament.TournamentName)
+        @Html.TextBoxFor(t => t.Tournament.TournamentName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.Tournament.TournamentDate)
+        @Html.TextBoxFor(t => t.Tournament.TournamentDate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.Tournament.MaxBuyIn)
+        @Html.TextBoxFor(t => t.Tournament.MaxBuyIn, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.Tournament.MinBuyIN)
+        @Html.TextBoxFor(t => t.Tournament.MinBuyIN, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.PlayerBuyIn)
+        @Html.TextBoxFor(t => t.PlayerBuyIn, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

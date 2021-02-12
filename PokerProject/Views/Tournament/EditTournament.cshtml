@@ -1,0 +1,45 @@
+﻿@model PokerProject.Models.Tournament
+@{
+    ViewBag.Title = "EditTournament";
+}
+
+<h2>EditTournament</h2>
+
+@using (Html.BeginForm("Edit", "Tournament"))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    @Html.HiddenFor(t => t.TournamentId)
+    <div class="form-group">
+        @Html.LabelFor(t => t.TournamentName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(t => t.TournamentName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.TournamentDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(t => t.TournamentDate, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.MaxBuyIn, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(t => t.MaxBuyIn, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.MinBuyIN, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(t => t.MinBuyIN, new { @class = "form-control" })
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn bg-primary">Create</button>
+}
+

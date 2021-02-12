@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PokerProject.Models.Tournament>
+@{
+    ViewBag.Title = "ShowTournaments";
+}
+
+<h2>Tournaments</h2>
+<p>
+    @Html.ActionLink("New Tournament", "Tournament", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Players Per Tour", "ShowEntriesPerTour", null, new { @class = "btn btn-primary" })
+</p>
+<ul>
+    @foreach (var tournament in Model)
+    {
+        <li>
+            <div>
+                <h4>@tournament.TournamentName</h4>
+                <span>@tournament.TournamentDate.ToString("MMM/dd/yyy")</span>
+                <span>@tournament.MaxBuyIn</span>
+                <span>@tournament.MinBuyIN</span>
+                @Html.ActionLink("Edit", "EditTournament", new { id = tournament.TournamentId })
+                @Html.ActionLink("Delete", "DeleteTournament", new { id = tournament.TournamentId })
+                @Html.ActionLink("Join", "JoinTournament", new { id = tournament.TournamentId })
+            </div>
+        </li>
+    }
+</ul>
+
